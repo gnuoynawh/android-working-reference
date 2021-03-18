@@ -10,11 +10,24 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
-        release {
+        debug {
+            debuggable true
             minifyEnabled false
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -22,4 +35,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    // json
+    implementation group: 'org.jsoup', name: 'jsoup', version: '1.9.2'
+
+    // Logger
+    implementation 'com.orhanobut:logger:2.2.0'
 }
