@@ -47,11 +47,9 @@ public class Formatter {
      */
     public static boolean isValidEmail(String email) {
         String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$";
-
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);
 
-        if(m.matches()) return true;
-        else            return false;
+        return m.matches();
     }
 }
